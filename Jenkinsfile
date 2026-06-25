@@ -1,21 +1,11 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'JDK21'
-        maven 'Maven3'
-    }
-
     stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Build') {
             steps {
+                sh 'java -version'
+                sh 'mvn -version'
                 sh 'mvn clean verify'
             }
         }
